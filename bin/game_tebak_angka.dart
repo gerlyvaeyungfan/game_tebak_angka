@@ -18,35 +18,41 @@ bool cekPrima(int n) {
 }
 
 void main() {
-  print("=======================================");
-  print("          MENU PROGRAM DART             ");
-  print("=======================================");
-  print("1. Game Tebak Angka");
-  print("2. Hitung Faktorial");
-  print("3. Cek Bilangan Prima");
-  stdout.write("Pilih menu: ");
-  int pilihan = int.parse(stdin.readLineSync()!);
+  while (true) {
+    print("\n=======================================");
+    print("          MENU PROGRAM DART             ");
+    print("=======================================");
+    print("1. Game Tebak Angka");
+    print("2. Hitung Faktorial");
+    print("3. Cek Bilangan Prima");
+    print("4. Keluar");
+    stdout.write("Pilih menu: ");
+    int pilihan = int.parse(stdin.readLineSync()!);
 
-  switch (pilihan) {
-    case 1:
-      gameTebakAngka();
-      break;
-    case 2:
-      stdout.write("Masukkan angka: ");
-      int n = int.parse(stdin.readLineSync()!);
-      print("Faktorial dari $n = ${hitungFaktorial(n)}");
-      break;
-    case 3:
-      stdout.write("Masukkan angka: ");
-      int n = int.parse(stdin.readLineSync()!);
-      if (cekPrima(n)) {
-        print("$n adalah bilangan prima.");
-      } else {
-        print("$n bukan bilangan prima.");
-      }
-      break;
-    default:
-      print("Menu tidak valid.");
+    switch (pilihan) {
+      case 0:
+        print("Terima kasih, program selesai.");
+        return; // keluar dari program
+      case 1:
+        gameTebakAngka();
+        break;
+      case 2:
+        stdout.write("Masukkan angka: ");
+        int n = int.parse(stdin.readLineSync()!);
+        print("Faktorial dari $n = ${hitungFaktorial(n)}");
+        break;
+      case 3:
+        stdout.write("Masukkan angka: ");
+        int n = int.parse(stdin.readLineSync()!);
+        if (cekPrima(n)) {
+          print("$n adalah bilangan prima.");
+        } else {
+          print("$n bukan bilangan prima.");
+        }
+        break;
+      default:
+        print("Menu tidak valid.");
+    }
   }
 }
 
