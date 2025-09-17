@@ -11,33 +11,45 @@ int hitungFaktorial(int n) {
 
 void main() {
   print("=======================================");
-  print("         GAME TEBAK ANGKA DART          ");
+  print("          MENU PROGRAM DART             ");
   print("=======================================");
+  print("1. Game Tebak Angka");
+  print("2. Hitung Faktorial");
+  stdout.write("Pilih menu: ");
+  int pilihan = int.parse(stdin.readLineSync()!);
 
+  switch (pilihan) {
+    case 1:
+      gameTebakAngka();
+      break;
+    case 2:
+      stdout.write("Masukkan angka: ");
+      int n = int.parse(stdin.readLineSync()!);
+      print("Faktorial dari $n = ${hitungFaktorial(n)}");
+      break;
+    default:
+      print("Menu tidak valid.");
+  }
+}
+
+void gameTebakAngka() {
   Random random = Random();
   int angkaRahasia = random.nextInt(100) + 1;
   int tebakan;
   int percobaan = 0;
 
-  print("\nSaya sudah memilih angka antara 1 sampai 100.");
-  print("Coba tebak angka rahasia!");
-
+  print("\n=== Game Tebak Angka ===");
   do {
-    stdout.write("\nMasukkan tebakan kamu: ");
+    stdout.write("Masukkan tebakan kamu: ");
     tebakan = int.parse(stdin.readLineSync()!);
     percobaan++;
 
     if (tebakan > angkaRahasia) {
-      print("Terlalu besar! Coba lagi.");
+      print("Terlalu besar!");
     } else if (tebakan < angkaRahasia) {
-      print("Terlalu kecil! Coba lagi.");
+      print("Terlalu kecil!");
     } else {
-      print("🎉 Selamat! Kamu berhasil menebak angka $angkaRahasia dalam $percobaan kali tebakan.");
+      print("🎉 Tebakan benar dalam $percobaan kali percobaan.");
     }
   } while (tebakan != angkaRahasia);
-
-  // Demo pemanggilan faktorial
-  stdout.write("\nMasukkan angka untuk faktorial: ");
-  int n = int.parse(stdin.readLineSync()!);
-  print("Faktorial dari $n = ${hitungFaktorial(n)}");
 }
