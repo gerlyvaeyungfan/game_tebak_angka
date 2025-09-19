@@ -25,7 +25,7 @@ void main() {
     print("1. Game Tebak Angka");
     print("2. Hitung Faktorial");
     print("3. Cek Bilangan Prima");
-    print("4. Keluar");
+    print("0. Keluar");
     stdout.write("Pilih menu: ");
     int pilihan = int.parse(stdin.readLineSync()!);
 
